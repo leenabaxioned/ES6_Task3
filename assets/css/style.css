@@ -147,12 +147,13 @@ ul {
   display: flex;
   gap: 20px;
   align-items: center;
-  padding: 20px 0; 
+  padding: 20px;  
 }
 
 li {
   position: relative;
-  padding: 10px;
+  width: 280px;
+  height: 305px;
   background-color: #fff;
   border: 1px solid transparent;
   margin-bottom: 10px;
@@ -179,6 +180,9 @@ textarea {
 
 .btn {
   display: flex;
+  gap: 5px;
+  background: transparent;
+  border: none;
   text-indent: -9999px;
 }
 
