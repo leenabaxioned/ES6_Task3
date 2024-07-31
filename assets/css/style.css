@@ -171,10 +171,11 @@ li {
 .note-actions button:hover { opacity: 0.8; }
 
 textarea {
-  width: 95%;
+  width: 80%;
   height: 75%;
-  margin: 10px 5px;
+  margin: 10px auto;
   border: none;
+  background-color: transparent;
   padding: 10px;
   resize: none;
 }
