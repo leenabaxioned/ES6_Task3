@@ -84,6 +84,7 @@ sub { bottom: -.25em; }
 body {
   box-sizing: border-box;
   font-family: sans-serif;
+  background-color: #7bdaf3; 
 }
 
 a { 
@@ -99,7 +100,7 @@ li {
 /*for wrapper*/
 .wrapper {
   max-width: 1360px;
-  width: 86%; 
+  width: 98%; 
   margin: 0 auto;
 }
 /*=================================
@@ -113,7 +114,85 @@ li {
 /*=================================
   main styling starts here
 =================================*/
+.main .wrapper { margin: 20px 0; }
 
+.main-notebtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding: 3px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #9ec862;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add::before {
+  font-family: "FontAwesome";
+  content: "\2b";
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+ul { 
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 0; 
+}
+
+li {
+  position: relative;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  margin-bottom: 10px;
+}
+
+.note-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: #9ec862;
+}
+
+.note-actions button.delete-btn { background-color: #9ec862; }
+.note-actions button:hover { opacity: 0.8; }
+
+textarea {
+  width: calc(100% - 50px);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  resize: none;
+}
+
+.btn {
+  display: flex;
+  text-indent: -9999px;
+}
+
+.btn::before {
+  font-family: "FontAwesome";
+  color: #fff;
+  font-size: 15px;
+  text-indent: 0;
+  cursor: pointer;
+}
+
+.edit-btn::before,
+.save-btn::before { content: "\f044";}
+.delete-btn::before { content: "\f2ed";}
 /*=================================
   main styling ends here
 =================================*/
