@@ -1,54 +1,57 @@
 /* Author: */
-// Function to create a new note element
 const createNote = () => {
-  const li = document.createElement('li');
-  li.className = 'note-item';
-
-  // Create the note actions container
-  const noteActions = document.createElement('div');
-  noteActions.className = 'note-actions';
-
-  const editButton = createButton('Edit', 'edit-btn', () => {
-    textarea.disabled = false;
-    toggleButtonVisibility(editButton, saveButton);
-  });
-
-  const saveButton = createButton('Save', 'save-btn', () => {
-    textarea.disabled = true;
-    toggleButtonVisibility(saveButton, editButton);
-  });
-  saveButton.style.display = 'none'; 
-
-  const deleteButton = createButton('Delete', 'delete-btn', () => {
-    li.remove();
-  });
-
-  noteActions.append(editButton, saveButton, deleteButton);
-  li.appendChild(noteActions);
-
-  const textarea = document.createElement('textarea');
-  textarea.disabled = true;
-  li.appendChild(textarea);
-  return li;
-};
-
-const createButton = (text, className, onClick) => {
-  const button = document.createElement('button');
-  button.className = `btn ${className}`;
-  button.textContent = text;
-  button.addEventListener('click', onClick);
-  return button;
-};
-
-// Helper function to toggle button visibility
-const toggleButtonVisibility = (hideButton, showButton) => {
-  hideButton.style.display = 'none';
-  showButton.style.display = 'inline-block';
-};
-
-// Add event listener to the "Add New Note" button
-document.querySelector('#addnote').addEventListener('click', () => {
-  const notesList = document.querySelector('#notes-list');
-  const newNote = createNote();
-  notesList.appendChild(newNote);
-});
+    // Create the main list item
+    const li = document.createElement('li');
+  
+    // Create and append the action buttons
+    const noteActions = document.createElement('div');
+    noteActions.className = 'note-actions';
+  
+    const editButton = document.createElement('button');
+    editButton.className = 'edit-btn btn';
+    editButton.textContent = 'Edit';
+    
+    const saveButton = document.createElement('button');
+    saveButton.className = 'save-btn btn';
+    saveButton.textContent = 'Save';
+    saveButton.style.display = 'none';
+  
+    const deleteButton = document.createElement('button');
+    deleteButton.className = 'delete-btn btn';
+    deleteButton.textContent = 'Delete';
+  
+    // Add event listeners
+    editButton.addEventListener('click', () => {
+        textarea.disabled = false;
+        editButton.style.display = 'none';
+        saveButton.style.display = 'flex';
+    });
+  
+    saveButton.addEventListener('click', () => {
+        textarea.disabled = true;
+        editButton.style.display = 'flex';
+        saveButton.style.display = 'none';
+    });
+  
+    deleteButton.addEventListener('click', () => {
+        li.remove();
+    });
+  
+    noteActions.appendChild(editButton);
+    noteActions.appendChild(saveButton);
+    noteActions.appendChild(deleteButton);
+    li.appendChild(noteActions);
+  
+    // Create and append the textarea
+    const textarea = document.createElement('textarea');
+    textarea.disabled = true; 
+    li.appendChild(textarea);
+    return li;
+  };
+  
+  // Add event listener to the "Add New Note" button
+  document.querySelector('#addnote').addEventListener('click', () => {
+    const notesList = document.querySelector('#notes-list');
+    const newNote = createNote();
+    notesList.appendChild(newNote);
+  });  
