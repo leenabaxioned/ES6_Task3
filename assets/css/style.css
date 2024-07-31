@@ -171,9 +171,10 @@ li {
 .note-actions button:hover { opacity: 0.8; }
 
 textarea {
-  width: calc(100% - 50px);
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  width: 95%;
+  height: 75%;
+  margin: 10px 5px;
+  border: none;
   padding: 10px;
   resize: none;
 }
@@ -188,15 +189,16 @@ textarea {
 
 .btn::before {
   font-family: "FontAwesome";
+  content: "\f044";
   color: #fff;
   font-size: 15px;
   text-indent: 0;
   cursor: pointer;
 }
 
-.edit-btn::before,
-.save-btn::before { content: "\f044";}
-.delete-btn::before { content: "\f2ed";}
+/* .edit-btn::before,
+.save-btn::before { content: "\f044";} */
+.delete-btn::before { content: "\f1f8";}
 /*=================================
   main styling ends here
 =================================*/
