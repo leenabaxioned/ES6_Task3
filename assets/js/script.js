@@ -28,7 +28,6 @@ const createNote = () => {
 
   const textarea = document.createElement('textarea');
   textarea.disabled = true;
-  textarea.placeholder = 'Write your note here...';
   li.appendChild(textarea);
   return li;
 };
