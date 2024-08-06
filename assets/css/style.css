@@ -198,12 +198,9 @@ textarea {
   cursor: pointer;
 }
 
-.save-btn::before { content: "\f044";} 
+.save-btn::before { content: "\f0c7";} 
 .delete-btn::before { content: "\f1f8";}
-.edit-btn { display: flex; }
-.non-editbtn { display: none; }
-.save-btn { display: flex; }
-.non-savebtn { display: none; }
+.hidden { display: none; }
 /*=================================
   main styling ends here
 =================================*/
