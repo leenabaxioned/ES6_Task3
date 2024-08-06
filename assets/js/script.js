@@ -1,62 +1,49 @@
-/* Author: */
+/* Author */
 const createNote = () => {
-    // Create the main list item
     const li = document.createElement('li');
-
-    let editBtn = document.querySelector(".edit-btn");
-    let noneditBtn = document.querySelector(".non-editbtn");
-    let saveBtn = document.querySelector(".save-btn");
-    let nonsaveBtn = document.querySelector(".non-savebtn");
+  
+    // Function to create a button
+    const createButton = (className, text, isHidden = false) => {
+        const button = document.createElement('button');
+        button.className = `${className} btn${isHidden ? ' hidden' : ''}`;
+        button.textContent = text;
+        return button;
+    };
   
     // Create and append the action buttons
     const noteActions = document.createElement('div');
     noteActions.className = 'note-actions';
-  
-    const editButton = document.createElement('button');
-    editButton.className = 'edit-btn non-editbtn btn';
-    editButton.textContent = 'Edit';
-    
-    const saveButton = document.createElement('button');
-    saveButton.className = 'save-btn non-savebtn btn';
-    saveButton.textContent = 'Save';
-    nonsaveBtn;
-  
-    const deleteButton = document.createElement('button');
-    deleteButton.className = 'delete-btn btn';
-    deleteButton.textContent = 'Delete';
+
+    const editButton = createButton('edit-btn', 'Edit');
+    const saveButton = createButton('save-btn', 'Save', true);
+    const deleteButton = createButton('delete-btn', 'Delete');
+
+    const textarea = document.createElement('textarea');
+    textarea.disabled = true; 
   
     // Add event listeners
     editButton.addEventListener('click', () => {
         textarea.disabled = false;
-        noneditBtn;
-        saveBtn;
+        editButton.classList.add('hidden');
+        saveButton.classList.remove('hidden');
     });
-  
+
     saveButton.addEventListener('click', () => {
         textarea.disabled = true;
-        editBtn;
-        nonsaveBtn;
+        editButton.classList.remove('hidden');
+        saveButton.classList.add('hidden');
     });
+
+    deleteButton.addEventListener('click', () => li.remove());
   
-    deleteButton.addEventListener('click', () => {
-        li.remove();
-    });
-  
-    noteActions.appendChild(editButton);
-    noteActions.appendChild(saveButton);
-    noteActions.appendChild(deleteButton);
-    li.appendChild(noteActions);
-  
-    // Create and append the textarea
-    const textarea = document.createElement('textarea');
-    textarea.disabled = true; 
-    li.appendChild(textarea);
+    noteActions.append(editButton, saveButton, deleteButton);
+    li.append(noteActions, textarea);
+
     return li;
-  };
-  
-  // Add event listener to the "Add New Note" button
-  document.querySelector('#addnote').addEventListener('click', () => {
+};
+
+// Add event listener to the "Add New Note" button
+document.querySelector('#addnote').addEventListener('click', () => {
     const notesList = document.querySelector('#notes-list');
-    const newNote = createNote();
-    notesList.appendChild(newNote);
-  });  
+    notesList.append(createNote());
+});
