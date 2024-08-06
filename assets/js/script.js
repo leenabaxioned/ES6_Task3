@@ -2,19 +2,24 @@
 const createNote = () => {
     // Create the main list item
     const li = document.createElement('li');
+
+    let editBtn = document.querySelector(".edit-btn");
+    let noneditBtn = document.querySelector(".non-editbtn");
+    let saveBtn = document.querySelector(".save-btn");
+    let nonsaveBtn = document.querySelector(".non-savebtn");
   
     // Create and append the action buttons
     const noteActions = document.createElement('div');
     noteActions.className = 'note-actions';
   
     const editButton = document.createElement('button');
-    editButton.className = 'edit-btn btn';
+    editButton.className = 'edit-btn non-editbtn btn';
     editButton.textContent = 'Edit';
     
     const saveButton = document.createElement('button');
-    saveButton.className = 'save-btn btn';
+    saveButton.className = 'save-btn non-savebtn btn';
     saveButton.textContent = 'Save';
-    saveButton.style.display = 'none';
+    nonsaveBtn;
   
     const deleteButton = document.createElement('button');
     deleteButton.className = 'delete-btn btn';
@@ -23,14 +28,14 @@ const createNote = () => {
     // Add event listeners
     editButton.addEventListener('click', () => {
         textarea.disabled = false;
-        editButton.style.display = 'none';
-        saveButton.style.display = 'flex';
+        noneditBtn;
+        saveBtn;
     });
   
     saveButton.addEventListener('click', () => {
         textarea.disabled = true;
-        editButton.style.display = 'flex';
-        saveButton.style.display = 'none';
+        editBtn;
+        nonsaveBtn;
     });
   
     deleteButton.addEventListener('click', () => {
